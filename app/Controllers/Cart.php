@@ -104,12 +104,11 @@
                 $userId = $userId['userId'];
                 $cart = $mysql->query("SELECT * FROM `Cart` WHERE `userId` = '$userId'");
 
-
                 $productsList = [];
                 while ($product = $cart->fetch_assoc()) {
+
                     $productsId = $product['productsId'];
                     $products = $mysql->query("SELECT * FROM `Products` WHERE `id` = '$productsId'")->fetch_assoc();
-
                     $productsList[] = [
                       'id' =>  $products['id'],
                       'name' => $products['name'],
